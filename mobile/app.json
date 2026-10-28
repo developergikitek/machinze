@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Machinze",
+    "slug": "mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.equiprent.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#111c4e",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.equiprent.app",
+      "usesCleartextTraffic": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#FFF8EC",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 110
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Machinze uses your location to show equipment available near you."
+        }
+      ]
+    ]
+  }
+}

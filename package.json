@@ -1,0 +1,12 @@
+{
+  "name": "machine-rental",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Machine Rental hybrid app with Next.js web and Expo mobile shell",
+  "scripts": {
+    "dev": "./dev.sh",
+    "start": "./dev.sh",
+    "dev:web": "cd web && npm run dev",
+    "dev:mobile": "cd mobile && npx expo start"
+  }
+}

@@ -1,0 +1,81 @@
+<!-- JCB / backhoe loader — 1024 canvas, transparent. icon.svg / adaptive foreground isi ko use karte hain -->
+<g id="machine">
+  <defs>
+    <linearGradient id="amb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffcf5a"/>
+      <stop offset="1" stop-color="#f09d0e"/>
+    </linearGradient>
+    <linearGradient id="ambDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2a516"/>
+      <stop offset="1" stop-color="#c97a06"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bfe3ff"/>
+      <stop offset="1" stop-color="#5d8fd6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="520" cy="792" rx="380" ry="26" fill="#000" opacity="0.28"/>
+
+  <!-- BACKHOE (rear, left): boom up-back, dipper down, bucket -->
+  <path d="M318 600 L250 372 L292 352 L372 590 Z" fill="url(#ambDark)"/>
+  <path d="M262 352 L150 560 L192 582 L300 372 Z" fill="url(#amb)"/>
+  <circle cx="276" cy="362" r="22" fill="#111c4e"/>
+  <circle cx="276" cy="362" r="9" fill="#cbd5e1"/>
+  <!-- hydraulic rams -->
+  <path d="M345 560 L300 430" stroke="#d6dde8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M262 410 L196 530" stroke="#d6dde8" stroke-width="12" stroke-linecap="round"/>
+  <!-- bucket -->
+  <path d="M120 548 Q118 640 196 668 L222 596 Q190 590 180 556 Z" fill="#2a3352"/>
+  <path d="M196 668 l-12 22 l26 -8 z M172 658 l-18 18 l26 -2 z M150 640 l-22 12 l26 4 z" fill="#cbd5e1"/>
+  <circle cx="172" cy="570" r="14" fill="#111c4e"/>
+
+  <!-- stabiliser leg -->
+  <path d="M330 640 L292 760 L330 760 L362 650 Z" fill="#2a3352"/>
+  <rect x="270" y="756" width="78" height="16" rx="5" fill="#111c4e"/>
+
+  <!-- CHASSIS -->
+  <path d="M300 560 H790 Q812 560 812 582 V650 Q812 668 794 668 H316 Q300 668 300 652 Z" fill="url(#amb)"/>
+  <!-- hood / engine -->
+  <path d="M560 470 H740 Q768 470 778 498 L800 560 H560 Z" fill="url(#amb)"/>
+  <path d="M600 498 H748 M600 522 H758" stroke="#c97a06" stroke-width="8" stroke-linecap="round"/>
+  <rect x="690" y="404" width="20" height="72" rx="6" fill="#2a3352"/>
+  <rect x="684" y="398" width="32" height="14" rx="5" fill="#111c4e"/>
+  <!-- chassis stripe -->
+  <rect x="300" y="612" width="512" height="16" fill="#111c4e" opacity="0.85"/>
+
+  <!-- CAB -->
+  <path d="M372 560 V352 Q372 330 394 330 H556 Q584 330 590 356 L612 560 Z" fill="#111c4e"/>
+  <path d="M362 334 H600 Q616 334 616 318 V310 Q616 300 604 300 H366 Q352 300 352 314 V320 Q352 334 362 334 Z" fill="url(#amb)"/>
+  <path d="M396 360 H468 V538 H396 Z" fill="url(#glass)"/>
+  <path d="M488 360 H550 Q562 360 565 372 L584 538 H488 Z" fill="url(#glass)"/>
+  <path d="M404 372 L440 372 L404 430 Z" fill="#fff" opacity="0.55"/>
+  <path d="M496 372 L530 372 L496 428 Z" fill="#fff" opacity="0.45"/>
+  <!-- beacon -->
+  <rect x="470" y="276" width="34" height="26" rx="8" fill="#ff7a1a"/>
+  <rect x="478" y="280" width="10" height="8" rx="3" fill="#ffd9a8"/>
+
+  <!-- FRONT LOADER: arm + bucket (right) -->
+  <path d="M600 590 L820 560 L840 600 L620 640 Z" fill="url(#ambDark)"/>
+  <path d="M640 600 L790 588" stroke="#d6dde8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M800 520 L918 540 Q936 544 932 562 L900 700 Q896 714 880 712 L790 702 Q808 610 800 520 Z" fill="url(#amb)"/>
+  <path d="M800 520 Q808 610 790 702 L820 704 Q836 612 826 524 Z" fill="#c97a06"/>
+  <path d="M880 712 L940 716 L926 694 L898 690 Z" fill="#cbd5e1"/>
+
+  <!-- WHEELS -->
+  <g>
+    <circle cx="420" cy="686" r="104" fill="#151a2b"/>
+    <circle cx="420" cy="686" r="104" fill="none" stroke="#2c3550" stroke-width="16" stroke-dasharray="22 14"/>
+    <circle cx="420" cy="686" r="58" fill="url(#amb)"/>
+    <circle cx="420" cy="686" r="40" fill="#c97a06"/>
+    <circle cx="420" cy="686" r="18" fill="#111c4e"/>
+  </g>
+  <g>
+    <circle cx="712" cy="708" r="80" fill="#151a2b"/>
+    <circle cx="712" cy="708" r="80" fill="none" stroke="#2c3550" stroke-width="14" stroke-dasharray="18 12"/>
+    <circle cx="712" cy="708" r="44" fill="url(#amb)"/>
+    <circle cx="712" cy="708" r="30" fill="#c97a06"/>
+    <circle cx="712" cy="708" r="13" fill="#111c4e"/>
+  </g>
+</g>

@@ -1,0 +1,240 @@
+/* Global (prefixed) — next.config ka turbopack "*.css" rule CSS modules ko hash nahi karta.
+   Dig cycle: boom neeche → bucket mitti me scoop → upar uthao → dump → repeat */
+.ex-boom,
+.ex-stick,
+.ex-bucket,
+.ex-hook {
+  transform-box: view-box;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.35, 1);
+}
+
+.ex-boom {
+  transform-origin: 156px 128px;
+  animation-name: ex-boom;
+}
+
+.ex-stick {
+  transform-origin: 240px 70px;
+  animation-name: ex-stick;
+}
+
+.ex-bucket {
+  transform-origin: 252px 150px;
+  animation-name: ex-bucket;
+}
+
+@keyframes ex-boom {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  25%,
+  50% {
+    transform: rotate(7deg);
+  }
+  70%,
+  90% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes ex-stick {
+  0%,
+  25%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(6deg);
+  }
+  88% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes ex-bucket {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50%,
+  76% {
+    transform: rotate(35deg);
+  }
+  86%,
+  94% {
+    transform: rotate(-30deg);
+  }
+}
+
+/* bucket ke andar ki mitti — scoop pe dikhe, dump pe gayab */
+.ex-load {
+  animation: ex-load 5s infinite;
+}
+
+@keyframes ex-load {
+  0%,
+  42% {
+    opacity: 0;
+  }
+  50%,
+  80% {
+    opacity: 1;
+  }
+  86%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* dump ke time girti mitti */
+.ex-fall {
+  transform-box: fill-box;
+  animation: ex-fall 5s infinite ease-in;
+  opacity: 0;
+}
+
+@keyframes ex-fall {
+  0%,
+  82% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  97% {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ex-fall:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.ex-fall:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.ex-fall:nth-child(4) {
+  animation-delay: 0.05s;
+}
+
+/* engine idle vibration */
+.ex-machine {
+  animation: ex-idle 0.18s infinite alternate ease-in-out;
+}
+
+@keyframes ex-idle {
+  to {
+    transform: translateY(0.6px);
+  }
+}
+
+.ex-smoke {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ex-smoke 2.4s infinite ease-out;
+  opacity: 0;
+}
+
+.ex-smoke:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.ex-smoke:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes ex-smoke {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  15% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-14px, -34px) scale(2.2);
+  }
+}
+
+.ex-glint {
+  animation: ex-glint 4.5s infinite ease-in-out;
+}
+
+@keyframes ex-glint {
+  0%,
+  60% {
+    transform: translateX(-40px);
+  }
+  85%,
+  100% {
+    transform: translateX(50px);
+  }
+}
+
+.ex-hook {
+  transform-origin: 168px 30px;
+  animation-name: ex-sway;
+  animation-duration: 3.2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes ex-sway {
+  from {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+.ex-dust {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ex-dust 5s infinite;
+}
+
+@keyframes ex-dust {
+  0%,
+  20% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  30% {
+    opacity: 0.8;
+  }
+  55%,
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-boom,
+  .ex-stick,
+  .ex-bucket,
+  .ex-hook,
+  .ex-load,
+  .ex-fall,
+  .ex-machine,
+  .ex-smoke,
+  .ex-glint,
+  .ex-dust {
+    animation: none;
+  }
+}

@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* App sirf light theme me hai — phone dark mode pe ho tab bhi background white rahe */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@theme {
+  --color-navy-950: #0b1437;
+  --color-navy-900: #111c4e;
+  --color-navy-800: #1a2766;
+  --color-amber-brand: #f5a91b;
+  --animate-rise: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+/* Browser autofill ka blue/yellow background hatao — input white hi rahe */
+.autofill-reset:-webkit-autofill,
+.autofill-reset:-webkit-autofill:hover,
+.autofill-reset:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-navy-950);
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  caret-color: var(--color-navy-800);
+  transition: background-color 9999s ease-out 0s;
+}
+.autofill-reset:autofill {
+  box-shadow: 0 0 0 1000px #fff inset;
+}
+
+/* Horizontal carousels — scroll ho, scrollbar na dikhe */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

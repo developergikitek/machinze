@@ -1,0 +1,379 @@
+/* Screen-level motion effects (login / signup). Sab prefers-reduced-motion pe band. */
+
+/* ---------- Aurora: dheere tairte soft color blobs ---------- */
+.fx-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fx-aurora > span {
+  position: absolute;
+  border-radius: 9999px;
+  will-change: transform;
+}
+
+.fx-aurora > span:nth-child(1) {
+  width: 320px;
+  height: 320px;
+  top: -140px;
+  right: -110px;
+  background: radial-gradient(closest-side, rgba(245, 169, 27, 0.22), transparent);
+  animation: fx-drift-a 14s ease-in-out infinite alternate;
+}
+
+.fx-aurora > span:nth-child(2) {
+  width: 280px;
+  height: 280px;
+  top: 40px;
+  left: -140px;
+  background: radial-gradient(closest-side, rgba(124, 147, 230, 0.14), transparent);
+  animation: fx-drift-b 18s ease-in-out infinite alternate;
+}
+
+.fx-aurora > span:nth-child(3) {
+  width: 220px;
+  height: 220px;
+  top: 120px;
+  right: 10%;
+  background: radial-gradient(closest-side, rgba(255, 203, 69, 0.16), transparent);
+  animation: fx-drift-c 16s ease-in-out infinite alternate;
+}
+
+@keyframes fx-drift-a {
+  to {
+    transform: translate(-60px, 50px) scale(1.15);
+  }
+}
+@keyframes fx-drift-b {
+  to {
+    transform: translate(70px, -30px) scale(1.2);
+  }
+}
+@keyframes fx-drift-c {
+  to {
+    transform: translate(-40px, -40px) scale(0.85);
+  }
+}
+
+/* ---------- Chamakte kan (sparkles) ---------- */
+.fx-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fx-sparkles > span {
+  position: absolute;
+  bottom: 10%;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #f5a91b;
+  box-shadow: 0 0 8px 2px rgba(245, 169, 27, 0.45);
+  opacity: 0;
+  animation: fx-rise-spark var(--dur, 6s) ease-in infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fx-rise-spark {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.6);
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-160px) translateX(var(--sway, 12px)) scale(1);
+  }
+}
+
+/* ---------- Stagger entrance: har child thoda der se upar aaye ---------- */
+.fx-stagger > * {
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.fx-stagger > :nth-child(1) { animation-delay: 80ms; }
+.fx-stagger > :nth-child(2) { animation-delay: 140ms; }
+.fx-stagger > :nth-child(3) { animation-delay: 200ms; }
+.fx-stagger > :nth-child(4) { animation-delay: 260ms; }
+.fx-stagger > :nth-child(5) { animation-delay: 320ms; }
+.fx-stagger > :nth-child(6) { animation-delay: 380ms; }
+.fx-stagger > :nth-child(7) { animation-delay: 440ms; }
+.fx-stagger > :nth-child(8) { animation-delay: 500ms; }
+.fx-stagger > :nth-child(9) { animation-delay: 560ms; }
+.fx-stagger > :nth-child(10) { animation-delay: 620ms; }
+.fx-stagger > :nth-child(n + 11) { animation-delay: 680ms; }
+
+/* ---------- Button pe guzarti chamak ---------- */
+.fx-shine {
+  position: relative;
+  overflow: hidden;
+}
+.fx-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  animation: fx-shine 3.8s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes fx-shine {
+  0% {
+    left: -60%;
+  }
+  35%,
+  100% {
+    left: 130%;
+  }
+}
+
+/* ---------- Logo gear slow spin ---------- */
+.fx-gear {
+  transform-box: view-box;
+  transform-origin: 24px 24px;
+  animation: fx-spin 14s linear infinite;
+}
+
+@keyframes fx-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Select hone pe icon pop ---------- */
+.fx-pop {
+  animation: fx-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fx-pop {
+  0% {
+    transform: scale(0.7);
+  }
+  60% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ---------- Success overlay: ring + checkmark draw ---------- */
+.fx-success {
+  animation: fx-fade 0.25s ease-out both;
+}
+.fx-success-card {
+  animation: fx-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.fx-success-ring {
+  stroke-dasharray: 190;
+  stroke-dashoffset: 190;
+  animation: fx-draw 0.6s 0.1s ease-out forwards;
+}
+.fx-success-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: fx-draw 0.4s 0.55s ease-out forwards;
+}
+.fx-success-burst > span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  border-radius: 9999px;
+  opacity: 0;
+  animation: fx-burst 0.7s 0.5s ease-out forwards;
+}
+
+@keyframes fx-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fx-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fx-burst {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--a)) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--a)) translateY(-58px) scale(0.4);
+  }
+}
+
+/* ---------- Splash: uchhalta pin + radar rings ---------- */
+.fx-pin-hop {
+  animation: fx-pin-hop 0.84s ease-in-out infinite alternate;
+}
+.fx-pin-shadow {
+  animation: fx-pin-shadow 0.84s ease-in-out infinite alternate;
+}
+
+@keyframes fx-pin-hop {
+  to {
+    transform: translateY(-18px);
+  }
+}
+@keyframes fx-pin-shadow {
+  to {
+    transform: scaleX(0.6);
+    opacity: 0.6;
+  }
+}
+
+.fx-radar > span {
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 90px;
+  height: 90px;
+  margin-left: -45px;
+  border-radius: 9999px;
+  border: 2px solid #f5a91b;
+  background: rgba(245, 169, 27, 0.08);
+  opacity: 0;
+  animation: fx-radar 2.1s ease-out infinite;
+}
+.fx-radar > span:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.fx-radar > span:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+@keyframes fx-radar {
+  0% {
+    opacity: 0;
+    transform: scale(0.3, 0.13);
+  }
+  15% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6, 1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-aurora > span,
+  .fx-sparkles > span,
+  .fx-stagger > *,
+  .fx-shine::after,
+  .fx-gear,
+  .fx-pop,
+  .fx-success,
+  .fx-success-card,
+  .fx-success-burst > span,
+  .fx-pin-hop,
+  .fx-pin-shadow,
+  .fx-radar > span {
+    animation: none;
+  }
+  .fx-sparkles {
+    display: none;
+  }
+  .fx-success-ring,
+  .fx-success-check {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Page transitions (React <ViewTransition>) ---------- */
+/* Taps transition ke dauraan bhi live page tak jaayein */
+::view-transition {
+  pointer-events: none;
+}
+
+/* Card ki photo → detail ki badi photo (shared element morph) */
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: fx-via-blur;
+}
+@keyframes fx-via-blur {
+  30% {
+    filter: blur(3px);
+  }
+}
+
+/* Aage jaana: purana page left, naya right se. Wapas: ulta */
+::view-transition-old(.nav-forward) {
+  --slide-offset: -60px;
+  animation:
+    150ms ease-in both fx-vt-fade reverse,
+    400ms cubic-bezier(0.22, 1, 0.36, 1) both fx-vt-slide reverse;
+}
+::view-transition-new(.nav-forward) {
+  --slide-offset: 60px;
+  animation:
+    210ms ease-out 120ms both fx-vt-fade,
+    400ms cubic-bezier(0.22, 1, 0.36, 1) both fx-vt-slide;
+}
+::view-transition-old(.nav-back) {
+  --slide-offset: 60px;
+  animation:
+    150ms ease-in both fx-vt-fade reverse,
+    400ms cubic-bezier(0.22, 1, 0.36, 1) both fx-vt-slide reverse;
+}
+::view-transition-new(.nav-back) {
+  --slide-offset: -60px;
+  animation:
+    210ms ease-out 120ms both fx-vt-fade,
+    400ms cubic-bezier(0.22, 1, 0.36, 1) both fx-vt-slide;
+}
+@keyframes fx-vt-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fx-vt-slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* ---------- Photos: achanak pop ki jagah blur se saaf ---------- */
+.fx-img {
+  transition:
+    opacity 450ms ease-out,
+    filter 600ms ease-out,
+    transform 600ms ease-out;
+}
+.fx-img[data-loaded="false"] {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+  .fx-img {
+    transition: none;
+  }
+}
