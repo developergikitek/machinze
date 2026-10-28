@@ -1,0 +1,13 @@
+# Ignore mobile app and Android/iOS build artifacts
+mobile/
+
+# Ignore release binaries
+*.apk
+*.aab
+
+# Git and OS files
+.git/
+.DS_Store
+
+# Local env files
+*.local
