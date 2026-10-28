@@ -7,6 +7,8 @@
     "dev": "./dev.sh",
     "start": "./dev.sh",
     "dev:web": "cd web && npm run dev",
-    "dev:mobile": "cd mobile && npx expo start"
+    "dev:mobile": "cd mobile && npx expo start",
+    "deploy": "vercel web --prod",
+    "deploy:web": "vercel web --prod"
   }
 }
